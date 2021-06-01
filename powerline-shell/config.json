@@ -1,0 +1,15 @@
+{
+  "segments": [
+    "exit_code",
+    "virtual_env", 
+    "ssh", 
+    "git", 
+    "cwd", 
+    "jobs"
+  ],
+  "cwd": {
+      "mode": "plain",
+      "max_depth": 10
+  },
+  "theme": "gruvbox"
+}
