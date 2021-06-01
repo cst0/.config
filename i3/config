@@ -128,7 +128,7 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # Allow for alt-tabbing
-bindsym $mod4+Tab workspace back_and_forth
+bindsym mod1+Tab workspace back_and_forth
 #bindsym $mod1+Tab workspace back_and_forth
 
 # Allow for the movement of containers, where the user follows the movement
