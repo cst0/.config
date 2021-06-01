@@ -2,12 +2,11 @@
 #exec feh --bg-scale /usr/share/backgrounds/gnome/Icescape.jpg
 exec nitrogen --set-centered ~/.config/i3/background.jpg
 
+# swap caps lock and escape
+exec /usr/bin/setxkbmap -option "caps:swapescape"
+
 # Xresources
 exec /home/chris/.config/i3/scripts/set_xdefault.sh
-
-# Windows default to being floating
-# BLASPHEMY! but I prefer to tile manually.
-# for_window [class="[.]*"] floating enable
 
 # Enable touchpad tap to click
 exec xinput set-prop 12 269 1
