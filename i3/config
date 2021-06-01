@@ -1,0 +1,462 @@
+# Background
+#exec feh --bg-scale /usr/share/backgrounds/gnome/Icescape.jpg
+exec nitrogen --set-centered ~/.config/i3/background.jpg
+
+# Xresources
+exec /home/chris/.config/i3/scripts/set_xdefault.sh
+
+# Windows default to being floating
+# BLASPHEMY! but I prefer to tile manually.
+# for_window [class="[.]*"] floating enable
+
+# Enable touchpad tap to click
+exec xinput set-prop 12 269 1
+
+# Using OS as the mod key
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block.
+font pango:Comfortaa 10
+# font pango:DejaVu Sans Mono 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Shift+Return exec gnome-terminal -e bash
+
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+# Open surf to DuckDuckGo
+# bindsym $mod+s exec surf duckduckgo.com
+
+# start dmenu
+# Shows everything, we only want .desktop so comment out
+# bindsym $mod+d exec dmenu_run
+# Shows everything with a .desktop, both alt or super are accepted
+#bindsym $mod +$mod1 exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
+#bindsym Shift+space exec --no-startup-id i3-dmenu-desktop
+
+#bindsym $mod+d exec ~/.config/i3/layout.sh
+
+# Start rofi
+# bindsym $mod1+space exec --no-startup-id rofi -modi "drun,run,window,ssh" -show drun -display-drun "run " -display-run "run " -display-ssh "ssh " -display-window "windows " -location 8 -sidebar-mode -xoffset 50
+    bindsym $mod+space exec --no-startup-id ~/.config/i3/scripts/run-rofi.sh
+# Search through runnable programs
+    bindsym $mod+Tab exec --no-startup-id rofi -show window
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+d split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Toggle 'focusmode': toggles gaps and status bar (from hidden to dock mode)
+bindsym $mod+Shift+f exec /home/chris/.config/i3/scripts/toggle_focusmode.sh
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+#bindsym $mod+Space+t focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Giving icons to the stock workspaces
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
+
+# Giving function to the icons
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Allow for alt-tabbing
+bindsym $mod4+Tab workspace back_and_forth
+#bindsym $mod1+Tab workspace back_and_forth
+
+# Allow for the movement of containers, where the user follows the movement
+bindsym $mod+Shift+1 move container to workspace number $ws1 ; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2 ; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3 ; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4 ; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5 ; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6 ; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7 ; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8 ; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9 ; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10 ; workspace $ws10
+
+# Allow for the movement of containers, where the user does not follow the movement
+bindsym $mod4+Shift+1 move container to workspace number $ws1
+bindsym $mod4+Shift+2 move container to workspace number $ws2
+bindsym $mod4+Shift+3 move container to workspace number $ws3
+bindsym $mod4+Shift+4 move container to workspace number $ws4
+bindsym $mod4+Shift+5 move container to workspace number $ws5
+bindsym $mod4+Shift+6 move container to workspace number $ws6
+bindsym $mod4+Shift+7 move container to workspace number $ws7
+bindsym $mod4+Shift+8 move container to workspace number $ws8
+bindsym $mod4+Shift+9 move container to workspace number $ws9
+bindsym $mod4+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+#
+# Tweaks
+#
+## Setting the background
+#
+## Setting up colors to be used in theme
+set $back               #1d1F21
+set $black              #050505
+set $grey               #373B41
+set $lightgrey          #707880
+set $white              #C5C8C6
+set $yellow             #F0C674
+set $red                #691006
+set $darkred            #A54242
+set $indic		          #aaaaaa
+
+set $turqoise    #1bb99d
+set $lightturq   #73d3c3
+set $blue        #2884b7
+set $darkerblue  #0d7ab7
+set $darksolblue #002b36
+set $grey2       #73878a
+set $grey3       #2d2d2d
+set $grey4       #1c1d1f
+
+font pango:FontAwesome 10
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# +bindsym $mod+$mod1+Shift+b bar mode invisible
+# Start i3bar to display a workspace bar
+bar {
+      status_command i3status --config ~/.config/i3/statusConfig
+
+        position top
+        # i3bar_command polybar example
+        i3bar_command i3bar -t
+        strip_workspace_numbers yes
+        separator_symbol "  "
+
+      colors {
+        background  $grey4
+        statusline  $darkerblue
+        separator   $lightturq
+
+        # class             Border        Background       Text
+        focused_workspace   $blue    $blue       $white
+        active_workspace    $grey         $grey            $black
+        focused_workspace   $grey        $grey              $white
+        active_workspace    $black      $black          $grey
+        inactive_workspace  #333333       #222222          #888888
+        urgent_workspace    #2f343a       #900000          #ffffff
+        binding_mode        #2f343a       #900000          #ffffff
+      }
+}
+#exec_always i3bar -b bar-0
+
+## Setting up the theme colors
+# class                 border          backgr.     text        indicator     child_border
+client.focused          $grey3          $grey       $black        $indic
+client.focused_inactive $darksolblue    $grey3      $grey2        $black
+client.unfocused        $darksolblue    $grey3      $grey2        $black
+client.urgent           $red            $red        $grey2        $red
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       $back
+
+## Setting up hotkeys
+  #Show rofi
+  # bindsym $mod+d exec --no-startup-id rofi -show run
+  # Turn up/down brightness-- will need the brightness script
+  # Start web browser
+  # Open Dolphin
+  # Lock screen
+  # Open Calculator
+
+#  Name    Keycode   Event Name
+#  Mute    121       XF86AudioMute
+#  VolDown 122       XF86AudioLowerVolume
+#  VolUp   123       XF86AudioRaiseVolume
+#  BriDown 232       XF86MonBrightnessDown
+#  BriUp   233       XF86MonBrightnessUp
+#  Calc    148       XF86Calculator
+#  Lock    133       Super_L
+#  Globe   180       XF86HomePage
+#  Folder
+#  Numbers should be numbers, but
+#  when not in num pad mode, they give
+#  a different output--
+#  1: KP_End
+#  2: KP_Down
+#  3: KP_Next
+#  4: KP_Left
+#  5: KP_Begin
+#  6: KP_Right
+#  7: KP_Home
+#  8: KP_Up
+#  9: KP_Prior
+#  0: KP_Insert
+
+# Getting the numpad to act as a secondary workspace switcher (When numpad is off):
+#          
+
+## Defining workspaces, giving them icons
+set $wsN1  "10 0"
+set $wsN2  "11 1"
+set $wsN3  "12 2"
+set $wsN4  "13 3"
+set $wsN5  "14"
+set $wsN6  "15"
+set $wsN7  "16"
+set $wsN8  "17"
+set $wsN9  "18"
+set $wsN10 "19"
+
+## Giving the icons functionality
+bindsym KP_Insert workspace $wsN1
+bindsym KP_End    workspace $wsN2
+bindsym KP_Down   workspace $wsN3
+bindsym KP_Next   workspace $wsN4
+bindsym KP_Left   workspace $wsN5
+bindsym KP_Begin  workspace $wsN6
+bindsym KP_Right  workspace $wsN7
+bindsym KP_Home   workspace $wsN8
+bindsym KP_Up     workspace $wsN9
+bindsym KP_Prior  workspace $wsN10
+
+## Allowing for movement of containers, where user follows the container
+bindsym $mod+KP_Insert move container to workspace $wsN1 ; workspace $wsN1
+bindsym $mod+KP_End    move container to workspace $wsN2 ; workspace $wsN2
+bindsym $mod+KP_Down   move container to workspace $wsN3 ; workspace $wsN3
+bindsym $mod+KP_Next   move container to workspace $wsN4 ; workspace $wsN4
+bindsym $mod+KP_Left   move container to workspace $wsN5 ; workspace $wsN5
+bindsym $mod+KP_Begin  move container to workspace $wsN6 ; workspace $wsN6
+bindsym $mod+KP_Right  move container to workspace $wsN7 ; workspace $wsN7
+bindsym $mod+KP_Home   move container to workspace $wsN8 ; workspace $wsN8
+bindsym $mod+KP_Up     move container to workspace $wsN9 ; workspace $wsN9
+bindsym $mod+KP_Prior  move container to workspace $wsN10 ; workspace $wsN10
+
+## Allowing for movement of containers, where user does not follow the container.
+bindsym $mod+Shift+KP_Insert move container to workspace $wsN1
+bindsym $mod+Shift+KP_End    move container to workspace $wsN2
+bindsym $mod+Shift+KP_Down   move container to workspace $wsN3
+bindsym $mod+Shift+KP_Next   move container to workspace $wsN4
+bindsym $mod+Shift+KP_Left   move container to workspace $wsN5
+bindsym $mod+Shift+KP_Begin  move container to workspace $wsN6
+bindsym $mod+Shift+KP_Right  move container to workspace $wsN7
+bindsym $mod+Shift+KP_Home   move container to workspace $wsN8
+bindsym $mod+Shift+KP_Up     move container to workspace $wsN9
+bindsym $mod+Shift+KP_Prior  move container to workspace $wsN10
+
+font pango:Comfortaa 10
+# Setting up the extra keys above the numpad.
+# bindcode 133 exec /usr/bin/dolphin
+bindsym XF86HomePage exec /usr/bin/firefox-quantum
+bindsym XF86Calculator exec /usr/bin/gnome-calculator
+
+# Doing volume, brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 -time 2
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 -time 2
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -M set Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -M set Master 5%+
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+
+# lock screen
+bindsym $mod+c exec i3lock -c 000000
+
+# Using the brightness mode- Allows for the using of numbers to change the brightness
+set $mode_brightness brightness
+bindsym $mod+Shift+b mode "$mode_brightness"
+mode "$mode_brightness" {
+    bindsym 0     mode "default", exec --no-startup-id xbacklight  -set 100 ; exec ./brightnessMeter.sh
+    bindsym 1     mode "default", exec --no-startup-id xbacklight  -set 10  ; exec ./brightnessMeter.sh
+    bindsym 2     mode "default", exec --no-startup-id xbacklight  -set 20  ; exec ./brightnessMeter.sh
+    bindsym 3     mode "default", exec --no-startup-id xbacklight  -set 30  ; exec ./brightnessMeter.sh
+    bindsym 4     mode "default", exec --no-startup-id xbacklight  -set 40  ; exec ./brightnessMeter.sh
+    bindsym 5     mode "default", exec --no-startup-id xbacklight  -set 50  ; exec ./brightnessMeter.sh
+    bindsym 6     mode "default", exec --no-startup-id xbacklight  -set 60  ; exec ./brightnessMeter.sh
+    bindsym 7     mode "default", exec --no-startup-id xbacklight  -set 70  ; exec ./brightnessMeter.sh
+    bindsym 8     mode "default", exec --no-startup-id xbacklight  -set 80  ; exec ./brightnessMeter.sh
+    bindsym 9     mode "default", exec --no-startup-id xbacklight  -set 90  ; exec ./brightnessMeter.sh
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Setting the volume mode-- Allows for the using of numbers to change the brightness
+set $mode_volume volume
+bindsym $mod+Shift+v mode "$mode_volume"
+mode "$mode_volume" {
+    bindsym 0     mode "default", exec --no-startup-id amixer set Master 100%
+    bindsym 1     mode "default", exec --no-startup-id amixer set Master 10%
+    bindsym 2     mode "default", exec --no-startup-id amixer set Master 20%
+    bindsym 3     mode "default", exec --no-startup-id amixer set Master 30%
+    bindsym 4     mode "default", exec --no-startup-id amixer set Master 40%
+    bindsym 5     mode "default", exec --no-startup-id amixer set Master 50%
+    bindsym 6     mode "default", exec --no-startup-id amixer set Master 60%
+    bindsym 7     mode "default", exec --no-startup-id amixer set Master 70%
+    bindsym 8     mode "default", exec --no-startup-id amixer set Master 80%
+    bindsym 9     mode "default", exec --no-startup-id amixer set Master 90%
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Certain types of windows work better as floating types.
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [title="Desktop Search"] floating enable
+
+# Setting up other buttons
+# Middle mouse anywhere on window kills it
+bindsym --whole-window $mod+button2 kill
+# Button 8 on mouse (the back/del/rewid history button) anywhere on window kills it
+bindsym --whole-window $mod+button8 kill
+# Settings key opens settings
+bindcode 179 exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+# Printscreen allows for a screenshot area to be selected. Sometimes this has to be spammed so it runs twice...
+bindcode 107 exec gnome-screenshot -a
+
+## TODO: Make these toggle by running a command to kill those instances before opening them?
+# Search key opens a search menu
+bindcode 225 exec tracker-needle
+# Open network settings
+bindcode 152 exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network
+# Open Power settings
+bindcode 128 exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power
+
+new_window pixel 3
+#new_window none
+#gaps inner 15
+#smart_borders on
+hide_edge_borders smart
+
+#smart_gaps on
+#set $mode_gaps Gaps: (o) outer, (i) inner
+#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#bindsym $mod+Shift+g mode "$mode_gaps"
+#
+#mode "$mode_gaps" {
+#        bindsym o      mode "$mode_gaps_outer"
+#        bindsym i      mode "$mode_gaps_inner"
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+#
+#mode "$mode_gaps_inner" {
+#        bindsym plus  gaps inner current plus 5
+#        bindsym minus gaps inner current minus 5
+#        bindsym 0     gaps inner current set 0
+#
+#        bindsym Shift+plus  gaps inner all plus 5
+#        bindsym Shift+minus gaps inner all minus 5
+#        bindsym Shift+0     gaps inner all set 0
+#
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+#mode "$mode_gaps_outer" {
+#        bindsym plus  gaps outer current plus 5
+#        bindsym minus gaps outer current minus 5
+#        bindsym 0     gaps outer current set 0
+#
+#        bindsym Shift+plus  gaps outer all plus 5
+#        bindsym Shift+minus gaps outer all minus 5
+#        bindsym Shift+0     gaps outer all set 0
+#
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+

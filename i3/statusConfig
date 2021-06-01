@@ -1,0 +1,124 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+# Start with timing stuff
+order += "time"
+order += "tztime local"
+
+# Then, making volume, battery, and cpu easy to keep track of
+order += "volume master"
+order += "battery all"
+# order += "cpu_usage"
+
+# Connectivity, starting with ethernet, then wireless card and card in monitor,
+# then wifi dongles, then dongles in monitor.
+order += "ethernet enp0s31f6"
+## Built-in card and monitor mode
+order += "wireless wlp4s0"
+order += "wireless wlp4s0mon"
+## USB Dongle, upper left USB port
+order += "wireless wlp0s20f0u1"
+order += "wireless wlp0s20f0u1mon"
+## USB Dongle, lower right USB port (?)
+order += "wireless wlp0s20f0u3"
+order += "wireless wlp0s20f0u3mon"
+## USB Dongle, upper right USB port (?)
+order += "wireless wlp0s20f0u4"
+order += "wireless wlp0s20f0u4mon"
+
+# Finish with this as a spacer, contents are empty.
+order += "tztime berlin"
+
+battery all {
+  format        = " %status %remaining (%percentage)"
+  hide_seconds  = true
+  last_full_capacity = true
+  integer_battery_capacity = true
+  # " %status %percentage %remaining"
+  format_down   = "⚠ NO BATTERY FOUND ⚠"
+
+  status_chr    = ""
+  status_bat    = ""
+  status_full   = ""
+  low_threshold = 20
+}
+
+tztime local {
+  format = "  %Y-%m-%d"
+}
+
+time {
+  format =  " %H:%M"
+}
+
+cpu_usage {
+  format = "  %usage"
+}
+
+wireless wlp4s0 {
+  format_up = "  %essid (%quality, %bitrate as %ip)"
+  format_down = "  down"
+}
+
+wireless wlp0s20f0u4 {
+  format_up = "wlp0s20f0u4   %essid (%quality, %bitrate as %ip)"
+  format_down = ""
+}
+
+wireless wlp0s20f0u3 {
+  format_up = "wlp0s20f0u3   %essid (%quality, %bitrate as %ip)"
+  format_down = ""
+}
+
+wireless wlp0s20f0u1 {
+  format_up = "wlp0s20f0u1   %essid (%quality, %bitrate as %ip)"
+  format_down = ""
+}
+
+wireless wlp4s0mon {
+  format_up = " wlp4s0mon MON ENABLED"
+  format_down = ""
+}
+
+wireless wlp0s20f0u4mon {
+  format_up = " wlp0s20f0u4mon MON ENABLED"
+  format_down = ""
+}
+
+wireless wlp0s20f0u3mon {
+  format_up = " wlp0s20f0u3mon MON ENABLED"
+  format_down = ""
+}
+
+wireless wlp0s20f0u1mon {
+  format_up = " wlp0s20f0u1mon MON ENABLED"
+  format_down = ""
+}
+
+ethernet enp0s31f6 {
+  format_up = "⚀ %ip (%speed)"
+  format_down = "⚀ down"
+}
+
+volume master {
+   format = " %volume"
+   format_muted = " (%volume)"
+   device = "default"
+   mixer = "Master"
+   mixer_idx = 0
+}
+
+tztime berlin {
+  format = ""
+}
+
