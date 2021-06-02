@@ -347,8 +347,10 @@ bindsym XF86HomePage exec /usr/bin/firefox-quantum
 bindsym XF86Calculator exec /usr/bin/gnome-calculator
 
 # Doing volume, brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 -time 2
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 -time 2
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 -time 2
+#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 -time 2
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -M set Master 5%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -M set Master 5%+
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
