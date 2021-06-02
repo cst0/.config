@@ -202,6 +202,10 @@ set $red                #691006
 set $darkred            #A54242
 set $indic		          #aaaaaa
 
+set $base_grey #262626
+set $high_grey #3a3a3a
+set $light #ebdbb2
+
 set $turqoise    #1bb99d
 set $lightturq   #73d3c3
 set $blue        #2884b7
@@ -225,28 +229,28 @@ bar {
         separator_symbol "  "
 
       colors {
-        background  $grey4
-        statusline  $darkerblue
-        separator   $lightturq
+        background  $base_grey
+        statusline  $light
+        separator   $light
 
-        # class             Border        Background       Text
-        focused_workspace   $blue    $blue       $white
-        active_workspace    $grey         $grey            $black
-        focused_workspace   $grey        $grey              $white
-        active_workspace    $black      $black          $grey
-        inactive_workspace  #333333       #222222          #888888
-        urgent_workspace    #2f343a       #900000          #ffffff
-        binding_mode        #2f343a       #900000          #ffffff
+        # class             Border   Background  Text
+        focused_workspace   $base_grey   $high_grey  $light
+        active_workspace    $base_grey   $high_grey  $light
+        focused_workspace   $base_grey   $high_grey  $light
+        active_workspace    $base_grey   $high_grey  $light
+        inactive_workspace  $base_grey   $base_grey  $light
+        urgent_workspace    #2f343a  #900000     #ffffff
+        binding_mode        #2f343a  #900000     #ffffff
       }
 }
 #exec_always i3bar -b bar-0
 
 ## Setting up the theme colors
-# class                 border          backgr.     text        indicator     child_border
-client.focused          $grey3          $grey       $black        $indic
-client.focused_inactive $darksolblue    $grey3      $grey2        $black
-client.unfocused        $darksolblue    $grey3      $grey2        $black
-client.urgent           $red            $red        $grey2        $red
+# class                 border        backgr.     text    indicator     child_border
+client.focused          $high_grey    $high_grey  $light  $indic
+client.focused_inactive $darksolblue  $grey3      $grey2  $black
+client.unfocused        $darksolblue  $grey3      $grey2  $black
+client.urgent           $red          $red        $grey2  $red
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       $back
 
