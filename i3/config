@@ -30,6 +30,8 @@ bindsym $mod+Shift+Return exec gnome-terminal -e bash
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
+bindsym $mod+m exec ~/.config/i3/scripts/monitor_selector.sh
+
 # Open surf to DuckDuckGo
 # bindsym $mod+s exec surf duckduckgo.com
 
@@ -45,9 +47,9 @@ bindsym $mod+q kill
 
 # Start rofi
 # bindsym $mod1+space exec --no-startup-id rofi -modi "drun,run,window,ssh" -show drun -display-drun "run " -display-run "run " -display-ssh "ssh " -display-window "windows " -location 8 -sidebar-mode -xoffset 50
-    bindsym $mod+space exec --no-startup-id ~/.config/i3/scripts/run-rofi.sh
+bindsym $mod+space exec --no-startup-id ~/.config/i3/scripts/run-rofi.sh
 # Search through runnable programs
-    bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+h focus left
