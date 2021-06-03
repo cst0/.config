@@ -6,8 +6,8 @@ chosen=$(echo -e "[Cancel]\nLaptop\nMonitor\nDocked" | rofi -dmenu -i)
 
 if [[ $chosen = "Laptop" ]]; then
 	~/.screenlayout/notdocked.sh
-elif [[ $chosen = "Monitor" ]]; then
-    echo ''
+elif [[ $chosen = "Left Monitor" ]]; then
+	~/.screenlayout/left_monitor.sh
 elif [[ $chosen = "Docked" ]]; then
     ~/.screenlayout/newestdocked.sh
 fi
