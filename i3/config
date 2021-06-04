@@ -5,6 +5,9 @@ set $mod Mod4
 #exec feh --bg-scale /usr/share/backgrounds/gnome/Icescape.jpg
 exec nitrogen --set-centered ~/.config/i3/background.jpg
 
+# bluetooth applet
+exec /usr/bin/blueman-applet
+
 # swap caps lock and escape
 exec /usr/bin/setxkbmap -option "caps:swapescape"
 bindsym $mod+Escape exec /usr/bin/setxkbmap -option "caps:swapescape"
