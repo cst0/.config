@@ -13,7 +13,7 @@ exec /usr/bin/setxkbmap -option "caps:swapescape"
 bindsym $mod+Escape exec /usr/bin/setxkbmap -option "caps:swapescape"
 
 # Xresources
-exec /home/chris/.config/i3/scripts/set_xdefault.sh
+# exec /home/chris/.config/i3/scripts/set_xdefault.sh
 
 # Enable touchpad tap to click
 exec xinput set-prop 12 269 1
