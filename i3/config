@@ -89,7 +89,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # Toggle 'focusmode': toggles gaps and status bar (from hidden to dock mode)
-bindsym $mod+Shift+f exec /home/chris/.config/i3/scripts/toggle_focusmode.sh
+# bindsym $mod+Shift+f exec /home/chris/.config/i3/scripts/toggle_focusmode.sh
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
