@@ -3,7 +3,7 @@ set $mod Mod4
 
 # Background
 #exec feh --bg-scale /usr/share/backgrounds/gnome/Icescape.jpg
-exec nitrogen --set-centered ~/.config/i3/background.jpg
+exec nitrogen --set-zoom-fill ~/.config/i3/images/mountains.png
 
 # bluetooth applet
 exec /usr/bin/blueman-applet
@@ -360,7 +360,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -M set Master 5%+
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 
 # lock screen
-bindsym $mod+c exec i3lock -c 000000
+bindsym $mod+c exec bash -c 'i3lock -i ~/.config/i3/images/mountains_locked.png -t'
 
 # Using the brightness mode- Allows for the using of numbers to change the brightness
 set $mode_brightness brightness
