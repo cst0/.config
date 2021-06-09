@@ -5,6 +5,9 @@ set $mod Mod4
 #exec feh --bg-scale /usr/share/backgrounds/gnome/Icescape.jpg
 exec nitrogen --set-zoom-fill ~/.config/i3/images/mountains.png
 
+# Notifications
+dunst -config ~/.config/dunst/dunstrc
+
 # bluetooth applet
 exec /usr/bin/blueman-applet
 
