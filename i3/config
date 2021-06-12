@@ -6,7 +6,7 @@ set $mod Mod4
 exec nitrogen --set-zoom-fill ~/.config/i3/images/mountains.png
 
 # Notifications
-dunst -config ~/.config/dunst/dunstrc
+exec dunst -config ~/.config/dunst/dunstrc
 
 # bluetooth applet
 exec /usr/bin/blueman-applet
