@@ -1,3 +1,5 @@
 {
-    "python.formatting.provider": "autopep8"
+    "python.venvPath": "${env:HOME}/.config/pyenv/.pyenv/versions",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "${env:HOME}/.config/pyenv/.pyenv/bin/black"
 }

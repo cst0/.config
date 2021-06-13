@@ -71,6 +71,7 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'Xuyuanp/nerdtree-git-plugin'
     ""Plug 'ycm-core/YouCompleteMe' %
     Plug 'yggdroot/indentline'
+    Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
 call plug#end()
 
 " *** Individual Plugin Settings
