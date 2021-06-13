@@ -2,8 +2,7 @@
 set $mod Mod4
 
 # Background
-#exec feh --bg-scale /usr/share/backgrounds/gnome/Icescape.jpg
-exec nitrogen --set-zoom-fill ~/.config/i3/images/mountains.png
+exec nitrogen --set-zoom-fill ~/.config/i3/images/background.png
 
 # Notifications
 exec dunst -config ~/.config/dunst/dunstrc
