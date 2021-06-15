@@ -18,8 +18,6 @@ set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=syntax
 
-"set formatoption+=o
-
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -32,13 +30,12 @@ set colorcolumn=120
 
 " *** Plugins
 call plug#begin('~/.config/nvim/vimplug')
-    ""Plug 'airblade/vim-gitgutter' %
+    Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'RRethy/vim-hexokinase'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'andymass/vim-matchup'
-    Plug 'luochen1990/rainbow'
     Plug 'chrisbra/unicode.vim'
     Plug 'ctrlpvim/ctrlp.vim'
-    ""Plug 'dense-analysis/ale'     %
-    ""Plug 'fholgado/minibufexpl.vim'%
     Plug 'flazz/vim-colorschemes'
     Plug 'godlygeek/tabular'
     Plug 'itchyny/calendar.vim'
@@ -47,31 +44,32 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'lervag/vimtex'
-    "Plug 'lervag/vimtex', {'tag': 'v1.6'}
-    "Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+    Plug 'luochen1990/rainbow'
     Plug 'markonm/traces.vim'
     Plug 'mhinz/vim-startify'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'preservim/nerdtree'
     Plug 'preservim/tagbar'
-    Plug 'RRethy/vim-hexokinase'
     Plug 'ryanoasis/vim-devicons'
-    "Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-speeddating'
-    "Plug 'honza/vim-snippets'
-    "Plug 'SirVer/ultisnips'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-scripts/bufpos'
     Plug 'vimwiki/vimwiki'
     Plug 'wellle/context.vim'
-    ""Plug 'xolox/vim-notes'        %
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    ""Plug 'ycm-core/YouCompleteMe' %
     Plug 'yggdroot/indentline'
-    Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
+    "Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+    "Plug 'SirVer/ultisnips'
+    "Plug 'airblade/vim-gitgutter' %
+    "Plug 'dense-analysis/ale'     %
+    "Plug 'fholgado/minibufexpl.vim'%
+    "Plug 'honza/vim-snippets'
+    "Plug 'lervag/vimtex', {'tag': 'v1.6'}
+    "Plug 'tpope/vim-endwise'
+    "Plug 'xolox/vim-notes'        %
+    "Plug 'ycm-core/YouCompleteMe' %
 call plug#end()
 
 " *** Individual Plugin Settings
@@ -275,5 +273,4 @@ map <C-l> <C-w>l
 noremap <silent> <Leader>r :RainbowToggle<CR>
 " handy ROS hack: treat launch file as xml
 autocmd BufNewFile,BufRead *.launch set syntax=xml
-
 
