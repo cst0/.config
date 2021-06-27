@@ -85,9 +85,24 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 " ** coc
 set hidden
 set cmdheight=2
-set updatetime=1000
+set updatetime=500
 set shortmess+=c
 set signcolumn=yes
+
+let g:coc_global_extensions = [
+    \ 'coc-clangd',
+    \ 'coc-cmake',
+    \ 'coc-git',
+    \ 'coc-go',
+    \ 'coc-java',
+    \ 'coc-json',
+    \ 'coc-marketplace',
+    \ 'coc-pyright',
+    \ 'coc-snippets',
+    \ ]
+" some plugins not in this list:
+" serves the same purpose of nerdtree:
+"    \ 'coc-explorer',
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
