@@ -302,9 +302,14 @@ map <C-j> <C-w>j
 map <C-h> <C-w>h
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+map <Leader>j <C-w>j
+map <Leader>h <C-w>h
+map <Leader>k <C-w>k
+map <Leader>l <C-w>l
+
 " del active buffer
 noremap <silent> <Leader>q :bd<CR>
-
 
 noremap <silent> <Leader>r :RainbowToggle<CR>
 " handy ROS hack: treat launch file as xml
