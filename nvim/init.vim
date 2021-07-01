@@ -198,6 +198,9 @@ nnoremap <Leader>f :CtrlPBufTagAll<CR>
 "let g:gitgutter_sign_removed = '▌'
 "let g:gitgutter_sign_modified_removed = '∙'
 
+" hexokinase
+set termguicolors
+
 " ** limelight
 let g:limelight_conceal_ctermfg = 'darkgray'
 
