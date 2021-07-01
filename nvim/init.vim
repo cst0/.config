@@ -270,9 +270,12 @@ let g:vimwiki_list = [
 hi Conceal ctermbg=none
 
 " *** Custom Keybindings
+" trying out space as leader in normal mode
+nmap <space> \
+
 " folding
-nnoremap <space> za
-vnoremap <space> zf
+"nnoremap <space> za
+"vnoremap <space> zf
 
 " Ctrl-backspace backspaces over an entire word
 inoremap <C-BS> <C-W>
@@ -289,12 +292,19 @@ nmap qw <silent>
 
 " plugin activation
 map <C-n> :NERDTreeToggle<CR>
+noremap <silent> <Leader>n :Tagbar<CR>
 map <C-t> :Tagbar<CR>
+noremap <silent> <Leader>t :Tagbar<CR>
 
+" buffer stuff
+" buffer nav
 map <C-j> <C-w>j
 map <C-h> <C-w>h
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+" del active buffer
+noremap <silent> <Leader>q :bd<CR>
+
 
 noremap <silent> <Leader>r :RainbowToggle<CR>
 " handy ROS hack: treat launch file as xml
