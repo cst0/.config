@@ -256,6 +256,13 @@ set conceallevel=0
 
 let g:tex_conceal='abdmg'
 
+" ** vimwiki
+let g:vimwiki_list = [
+            \ {'path': '~/vimwiki/','auto_tags':1}
+            \ ]
+
+" wtf is this? cterm is for terminal colors, am I concealing it for theming
+" reasons?
 hi Conceal ctermbg=none
 
 " *** Custom Keybindings
