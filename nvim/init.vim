@@ -34,8 +34,8 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'RRethy/vim-hexokinase'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'andymass/vim-matchup'
-    Plug 'chrisbra/unicode.vim'
-    Plug 'ctrlpvim/ctrlp.vim'
+    "Plug 'chrisbra/unicode.vim'
+    "Plug 'ctrlpvim/ctrlp.vim'
     Plug 'flazz/vim-colorschemes'
     Plug 'godlygeek/tabular'
     Plug 'itchyny/calendar.vim'
@@ -44,7 +44,7 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'lervag/vimtex'
-    Plug 'luochen1990/rainbow'
+    "Plug 'luochen1990/rainbow'
     Plug 'markonm/traces.vim'
     Plug 'mhinz/vim-startify'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -53,13 +53,14 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'preservim/tagbar'
     Plug 'ryanoasis/vim-devicons'
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-speeddating'
+    "Plug 'tpope/vim-speeddating'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-scripts/bufpos'
     Plug 'vimwiki/vimwiki'
     Plug 'wellle/context.vim'
     Plug 'yggdroot/indentline'
+    "Plug 'easymotion/vim-easymotion'
     "Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
     "Plug 'SirVer/ultisnips'
     "Plug 'airblade/vim-gitgutter' %
@@ -280,8 +281,8 @@ nmap Q <silent>
 nmap q: <silent>
 nmap qw <silent>
 
-" W now writes as root (per https://vim.fandom.com/wiki/Su-write)
-command W w !sudo tee "%" > /dev/null
+"" W now writes as root (per https://vim.fandom.com/wiki/Su-write)
+"command W w !sudo tee "%" > /dev/null
 
 " plugin activation
 map <C-n> :NERDTreeToggle<CR>
