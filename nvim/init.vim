@@ -310,6 +310,10 @@ map <Leader>l <C-w>l
 
 " del active buffer
 noremap <silent> <Leader>q :bd<CR>
+noremap <silent> <Leader>Q :bd!<CR>
+
+" send to background (instead of ^z for the same function)
+noremap <silent> <Leader>z <C-z>
 
 noremap <silent> <Leader>r :RainbowToggle<CR>
 " handy ROS hack: treat launch file as xml
