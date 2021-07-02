@@ -270,12 +270,20 @@ let g:vimwiki_list = [
 hi Conceal ctermbg=none
 
 " *** Custom Keybindings
-" trying out space as leader in normal mode
+" trying out space as leader in normal mode (without actually overwriting it)
 nmap <space> \
 
 " folding
 "nnoremap <space> za
 "vnoremap <space> zf
+
+" Spelling/highlight
+" [s]pell [c]heck
+noremap <silent> <Leader>sc z=<CR>
+" [s]pell [g]ood
+noremap <silent> <Leader>sg zg<CR>
+" [s]top [h]ighlight
+noremap <silent> <Leader>sh :noh<CR>
 
 " Ctrl-backspace backspaces over an entire word
 inoremap <C-BS> <C-W>
@@ -283,6 +291,7 @@ inoremap <C-BS> <C-W>
 noremap! <C-BS> <C-w>
 noremap! <C-h> <C-w>
 
+" if I fumble these I don't want to hear about it
 nmap Q <silent>
 nmap q: <silent>
 nmap qw <silent>
@@ -292,7 +301,7 @@ nmap qw <silent>
 
 " plugin activation
 map <C-n> :NERDTreeToggle<CR>
-noremap <silent> <Leader>n :Tagbar<CR>
+noremap <silent> <Leader>n :NERDTreeToggle<CR>
 map <C-t> :Tagbar<CR>
 noremap <silent> <Leader>t :Tagbar<CR>
 
