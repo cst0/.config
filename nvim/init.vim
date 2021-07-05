@@ -2,6 +2,7 @@
 set shell=/bin/bash
 set encoding=utf-8
 set spelllang=en_us
+set nocompatible
 set spell
 
 set title
@@ -34,17 +35,15 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'RRethy/vim-hexokinase'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'andymass/vim-matchup'
-    "Plug 'chrisbra/unicode.vim'
-    "Plug 'ctrlpvim/ctrlp.vim'
     Plug 'flazz/vim-colorschemes'
     Plug 'godlygeek/tabular'
+    Plug 'honza/vim-snippets'
     Plug 'itchyny/calendar.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'jlanzarotta/bufexplorer'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'lervag/vimtex'
-    "Plug 'luochen1990/rainbow'
     Plug 'markonm/traces.vim'
     Plug 'mhinz/vim-startify'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -52,26 +51,43 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'preservim/nerdtree'
     Plug 'preservim/tagbar'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'taketwo/vim-ros.git'
     Plug 'tpope/vim-fugitive'
-    "Plug 'tpope/vim-speeddating'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-scripts/bufpos'
     Plug 'vimwiki/vimwiki'
     Plug 'wellle/context.vim'
     Plug 'yggdroot/indentline'
-    "Plug 'easymotion/vim-easymotion'
     "Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
     "Plug 'SirVer/ultisnips'
-    "Plug 'airblade/vim-gitgutter' %
-    "Plug 'dense-analysis/ale'     %
-    "Plug 'fholgado/minibufexpl.vim'%
-    "Plug 'honza/vim-snippets'
+    "Plug 'airblade/vim-gitgutter'
+    "Plug 'chrisbra/unicode.vim'
+    "Plug 'ctrlpvim/ctrlp.vim'
+    "Plug 'dense-analysis/ale'
+    "Plug 'easymotion/vim-easymotion'
+    "Plug 'fholgado/minibufexpl.vim'
     "Plug 'lervag/vimtex', {'tag': 'v1.6'}
+    "Plug 'luochen1990/rainbow'
     "Plug 'tpope/vim-endwise'
-    "Plug 'xolox/vim-notes'        %
-    "Plug 'ycm-core/YouCompleteMe' %
+    "Plug 'tpope/vim-speeddating'
+    "Plug 'xolox/vim-notes'
+    "Plug 'ycm-core/YouCompleteMe'
 call plug#end()
+let g:coc_global_extensions = [
+    \ 'coc-clangd',
+    \ 'coc-cmake',
+    \ 'coc-git',
+    \ 'coc-go',
+    \ 'coc-java',
+    \ 'coc-json',
+    \ 'coc-marketplace',
+    \ 'coc-pyright',
+    \ 'coc-snippets',
+    \ ]
+" some plugins not in this list:
+" serves the same purpose of nerdtree:
+"    \ 'coc-explorer',
 
 " *** Individual Plugin Settings
 " ** airline
@@ -90,21 +106,6 @@ set updatetime=500
 set shortmess+=c
 set signcolumn=yes
 
-let g:coc_global_extensions = [
-    \ 'coc-clangd',
-    \ 'coc-cmake',
-    \ 'coc-git',
-    \ 'coc-go',
-    \ 'coc-java',
-    \ 'coc-json',
-    \ 'coc-marketplace',
-    \ 'coc-pyright',
-    \ 'coc-snippets',
-    \ ]
-" some plugins not in this list:
-" serves the same purpose of nerdtree:
-"    \ 'coc-explorer',
-
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -118,7 +119,6 @@ endfunction
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -272,6 +272,7 @@ hi Conceal ctermbg=none
 " *** Custom Keybindings
 " trying out space as leader in normal mode (without actually overwriting it)
 nmap <space> \
+vmap <space> \
 
 " folding
 "nnoremap <space> za
@@ -284,6 +285,8 @@ noremap <silent> <Leader>sc z=<CR>
 noremap <silent> <Leader>sg zg<CR>
 " [s]top [h]ighlight
 noremap <silent> <Leader>sh :noh<CR>
+" [s]ort [s]election
+vnoremap <silent> <Leader>ss :'<,'>sort<CR>
 
 " Ctrl-backspace backspaces over an entire word
 inoremap <C-BS> <C-W>
