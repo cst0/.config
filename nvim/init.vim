@@ -287,6 +287,8 @@ noremap <silent> <Leader>sg zg<CR>
 noremap <silent> <Leader>sh :noh<CR>
 " [s]ort [s]election
 vnoremap <silent> <Leader>ss :'<,'>sort<CR>
+" [s]trip [w]hitespace
+noremap <silent> <Leader>sw :StripWhitespace<CR>
 
 " Ctrl-backspace backspaces over an entire word
 inoremap <C-BS> <C-W>
