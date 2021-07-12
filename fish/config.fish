@@ -10,6 +10,7 @@ set PATH $PATH /home/cst/.cargo/bin
 #set ROS_PACKAGE_VERSION 3
 #source /opt/rosactive/sourceable.fish
 #bass source ~/ws_melodic_py3/devel/setup.bash
+source /opt/ros/melodic/share/rosbash/rosfish
 bass source /opt/ros/melodic/setup.bash
 bass source ~/ws_releases/devel/setup.bash --extend
 bass source ~/ws_scratchpad/devel/setup.bash --extend
