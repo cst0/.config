@@ -67,6 +67,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
+    #geometry = "500x5-30+20"
     geometry = "500x5-30+20"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
@@ -119,7 +120,7 @@
     notification_height = 0
 
     # Draw a line of "separator_height" pixel height between two
-   # notifications.
+    # notifications.
     # Set to 0 to disable.
     separator_height = 2
 
@@ -153,6 +154,8 @@
 
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/hicolor/16x16/apps/
+
+    max_icon_size = 40
 
 [frame]
     width = 2
