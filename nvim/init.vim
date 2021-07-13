@@ -306,12 +306,14 @@ nmap qw <silent>
 "" W now writes as root (per https://vim.fandom.com/wiki/Su-write)
 "command W w !sudo tee "%" > /dev/null
 
-" plugin activation
-map <C-n> :NERDTreeToggle<CR>
-noremap <silent> <Leader>n :NERDTreeToggle<CR>
-map <C-t> :Tagbar<CR>
-noremap <silent> <Leader>t :Tagbar<CR>
-
+if exists(":NERDTreeToggle")
+    map <C-n> :NERDTreeToggle<CR>
+    noremap <silent> <Leader>n :NERDTreeToggle<CR>
+endif
+if exists(":Tagbar")
+    map <C-t> :Tagbar<CR>
+    noremap <silent> <Leader>t :Tagbar<CR>
+endif
 " buffer stuff
 " buffer nav
 map <C-j> <C-w>j
@@ -331,7 +333,20 @@ noremap <silent> <Leader>Q :bd!<CR>
 " send to background (instead of ^z for the same function)
 noremap <silent> <Leader>z <C-z>
 
-noremap <silent> <Leader>r :RainbowToggle<CR>
+" activate Tabularize on a handful of different keys
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+  nmap <Leader>a, :Tabularize /,\zs<CR>
+  vmap <Leader>a, :Tabularize /,\zs<CR>
+endif
+
+if exists(":RainbowToggle")
+    noremap <silent> <Leader>r :RainbowToggle<CR>
+endif
+
 " handy ROS hack: treat launch file as xml
 autocmd BufNewFile,BufRead *.launch set syntax=xml
 
