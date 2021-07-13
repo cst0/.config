@@ -306,10 +306,9 @@ nmap qw <silent>
 "" W now writes as root (per https://vim.fandom.com/wiki/Su-write)
 "command W w !sudo tee "%" > /dev/null
 
-if exists(":NERDTreeToggle")
-    map <C-n> :NERDTreeToggle<CR>
-    noremap <silent> <Leader>n :NERDTreeToggle<CR>
-endif
+map <C-n> :NERDTreeToggle<CR>
+noremap <silent> <Leader>n :NERDTreeToggle<CR>
+
 if exists(":Tagbar")
     map <C-t> :Tagbar<CR>
     noremap <silent> <Leader>t :Tagbar<CR>
