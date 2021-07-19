@@ -5,6 +5,9 @@ set spelllang=en_us
 set nocompatible
 set spell
 
+" As much as I hate to say it, the mouse isn't always bad.
+set mouse=n
+
 set title
 set number
 set ruler
@@ -328,6 +331,10 @@ map <Leader>l <C-w>l
 " del active buffer
 noremap <silent> <Leader>q :bd<CR>
 noremap <silent> <Leader>Q :bd!<CR>
+
+" buffer resizing via leader keys in standard increments
+nmap <Leader>< 20<C-w><
+nmap <Leader>> 20<C-w>>
 
 " send to background (instead of ^z for the same function)
 noremap <silent> <Leader>z <C-z>
