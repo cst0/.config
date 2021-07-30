@@ -19,7 +19,6 @@ There's a handful of directories here that may be of interest:
 - dunst: Nice and simple notifications.
 - fish: My personal choice of shell. I'm particularly fond of the
   'abbreviations' feature, and a bunch are configured.
-- htop: Some configuring happening here, though it's all through htop.
 - i3: Tiling window manager. There's a bunch of unique things here-- I'm using
   my numpad as both a number input and a single-press workspace switcher, which
   isn't very typical as far as I've seen.
