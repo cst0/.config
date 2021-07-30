@@ -36,7 +36,11 @@ bindsym $mod+Shift+Return exec gnome-terminal -e bash
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
+# allow monitor selection via rofi
 bindsym $mod+m exec ~/.config/i3/scripts/monitor_selector.sh
+
+# pop open vimwiki for tracking todo's, knowledge base, etc.
+bindsym $mod+i exec gnome-terminal -- /snap/nvim/current/usr/bin/nvim ~/vimwiki/index.wiki
 
 # Open surf to DuckDuckGo
 # bindsym $mod+s exec surf duckduckgo.com
