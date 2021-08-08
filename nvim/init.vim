@@ -5,9 +5,6 @@ set spelllang=en_us
 set nocompatible
 set spell
 
-" As much as I hate to say it, the mouse isn't always bad.
-set mouse=n
-
 set title
 set number
 set ruler
@@ -338,6 +335,12 @@ nmap <Leader>> 20<C-w>>
 
 " send to background (instead of ^z for the same function)
 noremap <silent> <Leader>z <C-z>
+
+" As much as I hate to say it, the mouse isn't always bad. So here's how we
+" can enable/disable that...
+nmap <leader>me :set mouse=n<CR>
+nmap <leader>md :set mouse=<CR>
+
 
 " activate Tabularize on a handful of different keys
 if exists(":Tabularize")
