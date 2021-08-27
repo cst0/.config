@@ -310,7 +310,7 @@ map <C-n> :NERDTreeToggle<CR>
 noremap <silent> <Leader>n :NERDTreeToggle<CR>
 
 if exists(":Tagbar")
-    map <C-t> :Tagbar<CR>
+    nmap <silent> <C-t> :Tagbar<CR>
     noremap <silent> <Leader>t :Tagbar<CR>
 endif
 " buffer stuff
