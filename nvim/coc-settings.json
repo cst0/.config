@@ -1,6 +1,16 @@
 {
     "python.venvPath": "${env:HOME}/.config/pyenv/.pyenv/versions",
+    "python.linting.flake8Enabled": false,
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "${env:HOME}/.config/pyenv/.pyenv/bin/black",
-    "diagnostic.checkCurrentLine": true
+    "diagnostic.checkCurrentLine": true,
+
+    "languageserver":{
+        "arduino":{
+            "command":"/path/to/arduino-language-server",
+            "rootPatterns":["*.ino"],
+            "filetypes":["arduino"],
+            "args":["-cli", "/path/to/arduino-cli", "-clangd", "/path/to/clangd", "-cli-config", "/path/to/arduino-cli.yaml"]
+        }
+    }
 }
