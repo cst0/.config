@@ -19,3 +19,9 @@ bass source ~/ws_genericroscontrol/devel/setup.bash --extend
 #source /opt/ros/melodic/share/rosbash/rosfish
 #bass source /opt/ros/melodic/setup.bash
 #set ROS_WORKSPACE /home/cst/ws_laserutils
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# eval /home/cst/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
