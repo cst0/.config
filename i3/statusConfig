@@ -11,6 +11,8 @@ general {
         interval = 5
 }
 
+order=""
+
 # Start with timing stuff
 order += "time"
 order += "tztime local"
@@ -35,7 +37,8 @@ order += "wireless wlp0s20f0u3mon"
 ## USB Dongle, upper right USB port (?)
 order += "wireless wlp0s20f0u4"
 order += "wireless wlp0s20f0u4mon"
-
+## USB Tethering
+order += "wireless enp0s20f0u5"
 # Finish with this as a spacer, contents are empty.
 order += "tztime berlin"
 
@@ -102,6 +105,11 @@ wireless wlp0s20f0u3mon {
 
 wireless wlp0s20f0u1mon {
   format_up = " wlp0s20f0u1mon MON ENABLED"
+  format_down = ""
+}
+
+wireless enp0s20f0u5 {
+  format_up = "tethering enp0s20f0u5 %essid (%quality, %bitrate as %ip)"
   format_down = ""
 }
 
