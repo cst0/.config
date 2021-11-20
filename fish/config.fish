@@ -12,9 +12,11 @@ set PATH $PATH /home/cst/.cargo/bin
 #bass source ~/ws_melodic_py3/devel/setup.bash
 source /opt/ros/melodic/share/rosbash/rosfish
 bass source /opt/ros/melodic/setup.bash
-bass source ~/ws_releases/devel/setup.bash --extend
-bass source ~/ws_scratchpad/devel/setup.bash --extend
+#bass source ~/ws_releases/devel/setup.bash --extend
+#bass source ~/ws_scratchpad/devel/setup.bash --extend
 bass source ~/ws_genericroscontrol/devel/setup.bash --extend
+#bass source ~/ws_railgrasp/devel/setup.bash --extend
+bass source ~/ws_socialbot/devel/setup.bash --extend
 
 #source /opt/ros/melodic/share/rosbash/rosfish
 #bass source /opt/ros/melodic/setup.bash
