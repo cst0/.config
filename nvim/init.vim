@@ -31,7 +31,7 @@ set colorcolumn=120
 
 " *** Plugins
 call plug#begin('~/.config/nvim/vimplug')
-    Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
+    "Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
     Plug 'RRethy/vim-hexokinase'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'andymass/vim-matchup'
@@ -52,7 +52,7 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'preservim/nerdtree'
     Plug 'preservim/tagbar'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'taketwo/vim-ros'
+    "Plug 'taketwo/vim-ros'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
