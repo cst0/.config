@@ -7,7 +7,7 @@ chosen=$(echo -e "[Cancel]\nLaptop\nRight Monitor (standard)\nLeft Monitor (4k v
 if [[ $chosen = "Laptop" ]]; then
 	~/.config/screenlayout/notdocked.sh
 elif [[ $chosen = "Right Monitor (standard)" ]]; then
-	~/.config/screenlayout/vertical_4k.sh
+	~/.config/screenlayout/right_monitor.sh
 elif [[ $chosen = "Left Monitor (4k vertical)" ]]; then
 	~/.config/screenlayout/vertical_4k.sh
 elif [[ $chosen = "Left Monitor (standard)" ]]; then

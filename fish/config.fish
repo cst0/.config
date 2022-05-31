@@ -9,6 +9,7 @@ set PATH $PATH /home/cst/.cargo/bin
 
 set PATH $PATH /home/cst/.local/bin
 
+source /home/cst/active_ws.fish
 #set ROS_PACKAGE_VERSION 3
 #source /opt/rosactive/sourceable.fish
 #bass source ~/ws_melodic_py3/devel/setup.bash
