@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'junegunn/limelight.vim'
     Plug 'lervag/vimtex'
     Plug 'markonm/traces.vim'
+    Plug 'mfussenegger/nvim-dap'
     Plug 'mhinz/vim-startify'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ntpeters/vim-better-whitespace'
@@ -85,9 +86,9 @@ let g:coc_global_extensions = [
     \ 'coc-java',
     \ 'coc-json',
     \ 'coc-marketplace',
-    \ 'coc-pyright',
     \ ]
 "    \ 'coc-snippets',
+"    \ 'coc-pyright',
 " some plugins not in this list:
 " serves the same purpose of nerdtree:
 "    \ 'coc-explorer',

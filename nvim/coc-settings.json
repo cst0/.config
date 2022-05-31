@@ -2,8 +2,9 @@
     "python.venvPath": "${env:HOME}/.config/pyenv/.pyenv/versions",
     "python.linting.flake8Enabled": false,
     "python.formatting.provider": "black",
-    "python.formatting.blackPath": "${env:HOME}/.config/pyenv/.pyenv/bin/black",
+    "python.formatting.blackPath": "/home/cst/.local/bin/black",
     "diagnostic.checkCurrentLine": true,
+    "python.analysis.stubPath": "/home/cst/.config/nvim/typings",
 
     "languageserver":{
         "arduino":{
@@ -12,5 +13,14 @@
             "filetypes":["arduino"],
             "args":["-cli", "/path/to/arduino-cli", "-clangd", "/path/to/clangd", "-cli-config", "/path/to/arduino-cli.yaml"]
         }
-    }
+    },
+
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.8",
+            "path": "/usr/bin/java",
+            "default": true
+        }
+    ],
+    "java.jdt.ls.vmargs": "-cp /home/cst/git/ade/.classpath"
 }
