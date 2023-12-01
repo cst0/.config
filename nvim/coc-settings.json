@@ -1,6 +1,8 @@
 {
     "python.venvPath": "${env:HOME}/.config/pyenv/.pyenv/versions",
     "python.linting.flake8Enabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": ["--generate-members", "numpy"],
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "/home/cst/.local/bin/black",
     "diagnostic.checkCurrentLine": true,
@@ -22,5 +24,20 @@
             "default": true
         }
     ],
-    "java.jdt.ls.vmargs": "-cp /home/cst/git/ade/.classpath"
+    "java.jdt.ls.vmargs": "-cp /home/cst/git/ade/.classpath",
+
+    "clangd.arguments": [
+        "--background-index",
+        "--clang-tidy",
+        "--clang-tidy-checks=/home/cst/.config/clangd/clang_tidy_checks.txt"
+    ],
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd",
+
+
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
+
+    "inlayHint.refreshOnInsertMode": true,
+    "inlayHint.typeSeparator": "        ",
+    "inlayHint.subSeparator": ";"
 }
