@@ -31,14 +31,14 @@ set colorcolumn=120
 
 " *** Plugins
 call plug#begin('~/.config/nvim/vimplug')
-    "Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
+    "Plug 'https://github.com/mickaobrien/vim-stackoverflow'
     Plug 'RRethy/vim-hexokinase'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'andymass/vim-matchup'
+    Plug 'anufrievroman/vim-angry-reviewer'
     Plug 'flazz/vim-colorschemes'
     Plug 'godlygeek/tabular'
     Plug 'gotcha/vimpdb'
-"    Plug 'honza/vim-snippets'
     Plug 'itchyny/calendar.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'jlanzarotta/bufexplorer'
@@ -52,24 +52,29 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'preservim/nerdtree'
     Plug 'preservim/tagbar'
+    Plug 'rhysd/vim-grammarous'
     Plug 'ryanoasis/vim-devicons'
-    "Plug 'taketwo/vim-ros'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'anufrievroman/vim-angry-reviewer'
     Plug 'vim-scripts/bufpos'
-    "Plug 'vim-vdebug/vdebug'
     Plug 'vimwiki/vimwiki'
     Plug 'wellle/context.vim'
     Plug 'yggdroot/indentline'
-    "Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+    Plug 'yaegassy/coc-ruff', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'github/copilot.vim'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'stevearc/vim-arduino'
+    "Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
+    "Plug 'taketwo/vim-ros'
+    "Plug 'vim-vdebug/vdebug'
+    "Plug 'honza/vim-snippets'
+    "Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " neat, but seems to break the cursorconceal features
     "Plug 'SirVer/ultisnips'
     "Plug 'airblade/vim-gitgutter'
     "Plug 'chrisbra/unicode.vim'
     "Plug 'ctrlpvim/ctrlp.vim'
     "Plug 'dense-analysis/ale'
-    "Plug 'easymotion/vim-easymotion'
     "Plug 'fholgado/minibufexpl.vim'
     "Plug 'lervag/vimtex', {'tag': 'v1.6'}
     "Plug 'luochen1990/rainbow'
@@ -103,6 +108,13 @@ let g:airline#extensions#ale#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
+"autocmd BufNewFile,BufRead *.ino let g:airline_section_x='%{MyStatusLine()}'
+
+" arduino
+let g:arduino_use_cli = 0
+let g:arduino_dir = '/usr/share/arduino/hardware/arduino'
+let g:arduino_home_dir = '/home/cst/.arduino15'
+
 " ** coc
 set hidden
 set cmdheight=2
@@ -110,6 +122,7 @@ set updatetime=500
 set shortmess+=c
 set signcolumn=yes
 
+" use <tab> for trigger completion and navigate to the next complete item
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -120,9 +133,16 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<cr>"
+
+" scroll through possible tab-completed suggestions
+inoremap <expr> <c-j> coc#pum#visible() ? coc#pum#next(1) : "\<c-j>"
+inoremap <expr> <c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<c-k>"
+
+"" Make <CR> auto-select the first completion item and notify coc.nvim to
+"" format on enter, <cr> could be remapped by other vim plugin
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : '\<cr>'
+" observe the changed quotes! ^^
+inoremap <expr> <c-l> coc#pum#visible() ? coc#pum#confirm() : "\<c-l>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -136,7 +156,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> <leader>m :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -198,7 +219,7 @@ nnoremap <leader>ar :AngryReviewer<cr>
 " ** ctrl-p
 " ctrlp remapping
 "let g:ctrlp_map = '<C-f>'
-nnoremap <Leader>f :CtrlPBufTagAll<CR>
+" nnoremap <Leader>f :CtrlPBufTagAll<CR>
 
 "" ** gitgutter
 "let g:gitgutter_sign_added = '▌'
@@ -206,11 +227,54 @@ nnoremap <Leader>f :CtrlPBufTagAll<CR>
 "let g:gitgutter_sign_removed = '▌'
 "let g:gitgutter_sign_modified_removed = '∙'
 
-" hexokinase
+" ** copilot
+let g:copilot_filetypes = {
+      \ 'md': v:false,
+      \ 'tex': v:false,
+      \ 'wiki': v:false,
+      \ }
+
+" ** easymotion
+nmap <Leader>e <Plug>(easymotion-bd-f)
+let g:EasyMotion_smartcase = 1
+
+
+" ** hexokinase
 set termguicolors
 
 " ** limelight
 let g:limelight_conceal_ctermfg = 'darkgray'
+
+" ** NERDTree
+let NERDTreeShowHiddenFiles = 1
+let NERDTreeDirArrows = 1
+let NERDTreeIgnore=[
+            \    '^build$',
+            \    '^node_modules$',
+            \    '\.o$',
+            \    '\.a$',
+            \    '\.so$',
+            \    '\.class$',
+            \    '\.pyc$',
+            \    '\.swp$',
+            \    '\.swo$',
+            \    '\.swx$',
+            \    '\.aux$',
+            \    '\.bbl$',
+            \    '\.blg$',
+            \    '\.fdb_latexmk$',
+            \    '\.fls$',
+            \    '\.log$',
+            \    '\.pdf$',
+            \    '\.synctex.gz$',
+            \    '\.png$',
+            \    '\.jpg$',
+            \    '\.jpeg$',
+            \    '\.gif$',
+            \    '\.bmp$',
+            \    '\.tiff$',
+            \    '\.tif$',
+            \    ]
 
 " ** rainbow
 let g:rainbow_active = 0
@@ -264,7 +328,10 @@ let g:vimtex_syntax_enabled=0
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-set conceallevel=0
+
+" mildly aggressive concealing, but if we enter the line, drop the conceal
+set conceallevel=2
+set concealcursor=c
 
 let g:tex_conceal='abdmg'
 
@@ -344,8 +411,9 @@ noremap <silent> <Leader>z <C-z>
 
 " As much as I hate to say it, the mouse isn't always bad. So here's how we
 " can enable/disable that...
-nmap <leader>me :set mouse=n<CR>
-nmap <leader>md :set mouse=<CR>
+"nmap <leader>me :set mouse=n<CR>
+"nmap <leader>md :set mouse=<CR>
+" but i'm not using it and this slows down doc page checks
 
 
 " activate Tabularize on a handful of different keys
@@ -365,3 +433,56 @@ endif
 " handy ROS hack: treat launch file as xml
 autocmd BufNewFile,BufRead *.launch set syntax=xml
 
+" :[range]SortGroup[!] [n|f|o|b|x] /{pattern}/
+" e.g. :SortGroup /^header/
+" e.g. :SortGroup n /^header/
+" See :h :sort for details
+
+function! s:sort_by_header(bang, pat) range
+  let pat = a:pat
+  let opts = ""
+  if pat =~ '^\s*[nfxbo]\s'
+    let opts = matchstr(pat, '^\s*\zs[nfxbo]')
+    let pat = matchstr(pat, '^\s*[nfxbo]\s*\zs.*')
+  endif
+  let pat = substitute(pat, '^\s*', '', '')
+  let pat = substitute(pat, '\s*$', '', '')
+  let sep = '/'
+  if len(pat) > 0 && pat[0] == matchstr(pat, '.$') && pat[0] =~ '\W'
+    let [sep, pat] = [pat[0], pat[1:-2]]
+  endif
+  if pat == ''
+    let pat = @/
+  endif
+
+  let ranges = []
+  execute a:firstline . ',' . a:lastline . 'g' . sep . pat . sep . 'call add(ranges, line("."))'
+
+  let converters = {
+        \ 'n': {s-> str2nr(matchstr(s, '-\?\d\+.*'))},
+        \ 'x': {s-> str2nr(matchstr(s, '-\?\%(0[xX]\)\?\x\+.*'), 16)},
+        \ 'o': {s-> str2nr(matchstr(s, '-\?\%(0\)\?\x\+.*'), 8)},
+        \ 'b': {s-> str2nr(matchstr(s, '-\?\%(0[bB]\)\?\x\+.*'), 2)},
+        \ 'f': {s-> str2float(matchstr(s, '-\?\d\+.*'))},
+        \ }
+  let arr = []
+  for i in range(len(ranges))
+    let end = max([get(ranges, i+1, a:lastline+1) - 1, ranges[i]])
+    let line = getline(ranges[i])
+    let d = {}
+    let d.key = call(get(converters, opts, {s->s}), [strpart(line, match(line, pat))])
+    let d.group = getline(ranges[i], end)
+    call add(arr, d)
+  endfor
+  call sort(arr, {a,b -> a.key == b.key ? 0 : (a.key < b.key ? -1 : 1)})
+  if a:bang
+    call reverse(arr)
+  endif
+  let lines = []
+  call map(arr, 'extend(lines, v:val.group)')
+  let start = max([a:firstline, get(ranges, 0, 0)])
+  call setline(start, lines)
+  call setpos("'[", start)
+  call setpos("']", start+len(lines)-1)
+endfunction
+command! -range=% -bang -nargs=+ SortGroup <line1>,<line2>call <SID>sort_by_header(<bang>0, <q-args>)
