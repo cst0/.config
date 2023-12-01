@@ -1,15 +1,6 @@
 # Using OS as the mod key
 set $mod Mod4
 
-# Background
-exec nitrogen --set-zoom-fill ~/.config/i3/images/background.png
-
-# Notifications
-exec dunst -config ~/.config/dunst/dunstrc
-
-# bluetooth applet
-exec /usr/bin/blueman-applet
-
 # swap caps lock and escape
 exec /usr/bin/setxkbmap -option "caps:swapescape"
 bindsym $mod+Caps exec /usr/bin/setxkbmap -option "caps:swapescape"
@@ -359,8 +350,8 @@ bindsym XF86Calculator exec /usr/bin/gnome-calculator
 # Doing volume, brightness
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 -time 2
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 -time 2
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo /usr/bin/brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo /usr/bin/brightnessctl s 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -M set Master 5%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -M set Master 5%+
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
@@ -477,3 +468,11 @@ hide_edge_borders smart
 #        bindsym Escape mode "default"
 #}
 
+# Background
+exec nitrogen --set-zoom-fill ~/.config/i3/images/background.png
+
+# Notifications
+exec dunst -config ~/.config/dunst/dunstrc
+
+# bluetooth applet
+exec /usr/bin/blueman-applet
