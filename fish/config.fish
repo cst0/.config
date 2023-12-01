@@ -30,3 +30,6 @@ source /home/cst/active_ws.fish
 # eval /home/cst/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+export PICO_SDK_PATH=$HOME/pico/pico-sdk
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib/
+bass source /opt/ros/noetic/setup.bash

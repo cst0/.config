@@ -3,3 +3,6 @@ set recolor
 set recolor-lightcolor \#282828
 set recolor-darkcolor \#EBDBD2
 set default-bg \#3D3D3D
+set first-page-column 1:1
+map D set "first-page-column 1:1"
+map <C-d> set "first-page-column 1:2"
