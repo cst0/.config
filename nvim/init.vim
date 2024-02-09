@@ -65,7 +65,7 @@ call plug#begin('~/.config/nvim/vimplug')
     Plug 'github/copilot.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'stevearc/vim-arduino'
-    "Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'ObserverOfTime/discord.nvim', {'do': ':UpdateRemotePlugins'}
     "Plug 'taketwo/vim-ros'
     "Plug 'vim-vdebug/vdebug'
     "Plug 'honza/vim-snippets'
@@ -148,6 +148,10 @@ inoremap <expr> <c-l> coc#pum#visible() ? coc#pum#confirm() : "\<c-l>"
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" use {g and }g to navigate grammar errors
+nmap <silent> {g <Plug>(grammarous-move-to-previous-error)
+nmap <silent> }g <Plug>(grammarous-move-to-next-error)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -325,7 +329,7 @@ endfunction
 
 " ** vimtex
 let g:vimtex_syntax_enabled=0
-let g:tex_flavor='latex'
+let g:tex_flavor='xelatex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 
